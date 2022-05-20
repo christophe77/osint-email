@@ -3,9 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// https://github.com/HOPain/OSINT-Search-Tools/blob/main/Email.html
-const search_1 = __importDefault(require("./api/search"));
-const osintEmail = {
-    search: search_1.default
+const gravatar_1 = __importDefault(require("./gravatar"));
+const providers = {
+    gravatar: gravatar_1.default,
 };
-exports.default = osintEmail;
+exports.default = providers;
