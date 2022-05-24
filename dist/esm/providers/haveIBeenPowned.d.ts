@@ -1,4 +1,3 @@
-declare const haveIBeenPowned: (email: string) => Promise<import("axios").AxiosResponse<any, any> | {
-    error: any;
-}>;
+import HaveIBeenPowned from '../types/haveIBeenPowned';
+declare const haveIBeenPowned: (email: string) => Promise<HaveIBeenPowned>;
 export default haveIBeenPowned;

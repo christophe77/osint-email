@@ -4,4 +4,4 @@ async function getDatas(email) {
     const response = await osintEmail.search(email);
     console.log(response)
 }
-getDatas("chrisb@gmx.fr")
+getDatas("t0fxxx@gmail.com")

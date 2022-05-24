@@ -1,6 +1,12 @@
 import browserInstance from '../browserInstance';
 import { delay } from '../utils';
 const google = async (email) => {
+    const defaultResponse = [
+        {
+            link: '',
+            title: '',
+        },
+    ];
     const fileTypeList = [
         'txt',
         'pdf',
@@ -26,27 +32,27 @@ const google = async (email) => {
             // bypass cookie alert
             await page.keyboard.press('Enter');
             await delay(1000);
-            await page.waitForSelector('.yuRUbf', { visible: true });
+            await page.waitForSelector('.yuRUbf', {
+                visible: true,
+                timeout: 1000,
+            });
             const searchResults = await page.$$eval('a', (as) => as.map((a) => {
                 if (!a.href.includes('google') && a.href !== '') {
                     return {
-                        title: a.title || '',
-                        link: a.href,
+                        title: String(a.title) || '',
+                        link: String(a.href),
                     };
                 }
             }));
             await browser.close();
             const googleResults = searchResults.filter((result) => result);
-            return googleResults;
+            return googleResults || defaultResponse;
         }
     }
-    catch (error) {
-        return [
-            {
-                error,
-            },
-        ];
+    catch (_a) {
+        await (browser === null || browser === void 0 ? void 0 : browser.close());
+        return defaultResponse;
     }
-    return [{}];
+    return defaultResponse;
 };
 export default google;

@@ -1,5 +1,5 @@
-declare type Google = {
+declare type Pastebin = {
     title?: string;
     link?: string;
 } | undefined;
-export default Google;
+export default Pastebin;

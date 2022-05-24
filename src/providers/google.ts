@@ -1,7 +1,14 @@
 import browserInstance from '../browserInstance';
+import Google from '../types/google';
 import { delay } from '../utils';
 
-const google = async (email: string): Promise<any> => {
+const google = async (email: string): Promise<Google[]> => {
+	const defaultResponse: Google[] = [
+		{
+			link: '',
+			title: '',
+		},
+	];
 	const fileTypeList = [
 		'txt',
 		'pdf',
@@ -28,31 +35,30 @@ const google = async (email: string): Promise<any> => {
 			await page.keyboard.press('Enter');
 			await delay(1000);
 
-			await page.waitForSelector('.yuRUbf', { visible: true });
+			await page.waitForSelector('.yuRUbf', {
+				visible: true,
+				timeout: 1000,
+			});
 
-			const searchResults = await page.$$eval('a', (as) =>
+			const searchResults: Google[] = await page.$$eval('a', (as) =>
 				as.map((a: any) => {
 					if (!a.href.includes('google') && a.href !== '') {
 						return {
-							title: a.title || '',
-							link: a.href,
+							title: String(a.title) || '',
+							link: String(a.href),
 						};
 					}
 				}),
 			);
 			await browser.close();
 			const googleResults = searchResults.filter((result) => result);
-
-			return googleResults;
+			return googleResults || defaultResponse;
 		}
-	} catch (error: any) {
-		return [
-			{
-				error,
-			},
-		];
+	} catch {
+		await browser?.close();
+		return defaultResponse;
 	}
-	return [{}];
+	return defaultResponse;
 };
 
 export default google;

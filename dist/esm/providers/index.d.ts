@@ -1,7 +1,6 @@
 declare const providers: {
-    google: (email: string) => Promise<any>;
-    haveIBeenPowned: (email: string) => Promise<import("axios").AxiosResponse<any, any> | {
-        error: any;
-    }>;
+    google: (email: string) => Promise<import("../types/google").default[]>;
+    haveIBeenPowned: (email: string) => Promise<import("../types/haveIBeenPowned").default>;
+    pastebin: (email: string) => Promise<import("../types/pastebin").default[]>;
 };
 export default providers;

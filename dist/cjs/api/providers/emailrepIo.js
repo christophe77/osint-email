@@ -9,8 +9,7 @@ const emailRepIo = async (email) => {
         const resp = await axios_1.default.get(`https://emailrep.io/query/${email}`);
         return resp.data;
     }
-    catch (error) {
-        console.log(error);
+    catch () {
         throw new Error('error emailRepIo');
     }
 };
