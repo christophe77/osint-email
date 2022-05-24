@@ -3,12 +3,7 @@ import Google from '../types/google';
 import { delay } from '../utils';
 
 const google = async (email: string): Promise<Google[]> => {
-	const defaultResponse: Google[] = [
-		{
-			link: '',
-			title: '',
-		},
-	];
+	const defaultResponse: Google[] = [];
 	const fileTypeList = [
 		'txt',
 		'pdf',

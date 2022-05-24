@@ -1,12 +1,7 @@
 import browserInstance from '../browserInstance';
 import { delay } from '../utils';
 const google = async (email) => {
-    const defaultResponse = [
-        {
-            link: '',
-            title: '',
-        },
-    ];
+    const defaultResponse = [];
     const fileTypeList = [
         'txt',
         'pdf',

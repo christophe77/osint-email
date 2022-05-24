@@ -6,12 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const browserInstance_1 = __importDefault(require("../browserInstance"));
 const utils_1 = require("../utils");
 const pastebin = async (email) => {
-    const defaultResponse = [
-        {
-            link: '',
-            title: '',
-        },
-    ];
+    const defaultResponse = [];
     const dork = `site:pastebin.com intext:"${email}"}`;
     const searchUrl = encodeURI(`https://www.google.com/search?q=${dork}`);
     const browser = await (0, browserInstance_1.default)();

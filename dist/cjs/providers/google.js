@@ -6,12 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const browserInstance_1 = __importDefault(require("../browserInstance"));
 const utils_1 = require("../utils");
 const google = async (email) => {
-    const defaultResponse = [
-        {
-            link: '',
-            title: '',
-        },
-    ];
+    const defaultResponse = [];
     const fileTypeList = [
         'txt',
         'pdf',

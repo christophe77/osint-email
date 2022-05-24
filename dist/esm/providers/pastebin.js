@@ -1,12 +1,7 @@
 import browserInstance from '../browserInstance';
 import { delay } from '../utils';
 const pastebin = async (email) => {
-    const defaultResponse = [
-        {
-            link: '',
-            title: '',
-        },
-    ];
+    const defaultResponse = [];
     const dork = `site:pastebin.com intext:"${email}"}`;
     const searchUrl = encodeURI(`https://www.google.com/search?q=${dork}`);
     const browser = await browserInstance();

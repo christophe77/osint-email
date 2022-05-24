@@ -3,12 +3,7 @@ import Pastebin from '../types/pastebin';
 import { delay } from '../utils';
 
 const pastebin = async (email: string): Promise<Pastebin[]> => {
-	const defaultResponse: Pastebin[] = [
-		{
-			link: '',
-			title: '',
-		},
-	];
+	const defaultResponse: Pastebin[] = [];
 
 	const dork = `site:pastebin.com intext:"${email}"}`;
 	const searchUrl = encodeURI(`https://www.google.com/search?q=${dork}`);
@@ -23,12 +18,7 @@ const pastebin = async (email: string): Promise<Pastebin[]> => {
 			await page.keyboard.press('Enter');
 			await delay(1000);
 
-			await page.waitForSelector('.yuRUbf', {
-				visible: true,
-				timeout: 1000,
-			});
-
-			const searchResults: Pastebin[] = await page.$$eval('a', (as) =>
+            const searchResults: Pastebin[] = await page.$$eval('a', (as) =>
 				as.map((a: any) => {
 					if (!a.href.includes('google') && a.href !== '') {
 						return {
