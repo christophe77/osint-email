@@ -1,6 +1,6 @@
 {
 	"name": "osint-email",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"repository": "https://github.com/christophe77/osint-email",
 	"author": "christophe bellec <christophe.bellec@ekim.fr>",
 	"engines": {
