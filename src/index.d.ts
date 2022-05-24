@@ -1,5 +1,5 @@
-import { EmailResponse } from "./types/emailResponse";
+import Result from "./types/result";
 
 export interface OsintEmail {
-    search: (email: string) => Promise<EmailResponse>;
+    search: (email: string) => Promise<Result>;
 }

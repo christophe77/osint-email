@@ -1,8 +1,8 @@
 import providers from './providers';
-const { gravatar } = providers;
+const { google } = providers;
 const search = async (email) => {
-    const gravatarDatas = await gravatar(email);
-    const response = { gravatar: gravatarDatas };
+    const googleDatas = await google(email);
+    const response = { google: googleDatas };
     return response;
 };
 export default search;

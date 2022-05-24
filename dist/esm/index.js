@@ -1,5 +1,4 @@
-// https://github.com/HOPain/OSINT-Search-Tools/blob/main/Email.html
-import search from "./api/search";
+import search from "./search";
 const osintEmail = {
     search
 };

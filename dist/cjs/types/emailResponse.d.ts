@@ -1,4 +1,4 @@
-import GravatarResponse from './gravatarResponse';
+import GoogleResponse from './googleResponse';
 export declare type EmailResponse = {
-    gravatar: GravatarResponse;
+    google: GoogleResponse;
 };

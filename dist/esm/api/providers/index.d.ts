@@ -1,4 +1,4 @@
 declare const providers: {
-    gravatar: (email: string) => Promise<any>;
+    google: (email: string) => Promise<any>;
 };
 export default providers;
