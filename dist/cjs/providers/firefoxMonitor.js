@@ -1,16 +1,28 @@
-import browserInstance from '../browserInstance';
-const haveIBeenPowned = async (email) => {
-    const defaultResponse = [];
-    const browser = await browserInstance();
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const browserInstance_1 = __importDefault(require("../browserInstance"));
+const firefoxMonitor = async (email) => {
+    const defaultResponse = {
+        Breaches: [],
+        Pastes: [],
+    };
+    const browser = await (0, browserInstance_1.default)();
     if (browser) {
         const page = await browser.newPage();
+        let results = defaultResponse;
         await page.goto('https://monitor.firefox.com', {
             waitUntil: 'networkidle2',
         });
         await page.click('input#scan-email', { delay: 200 });
         await page.keyboard.type(`${email}\n`);
         await page.waitForNavigation();
-        await page.content();
+        await page.waitForSelector('.scan-res-breaches', {
+            visible: true,
+            timeout: 1000,
+        });
         const rawBreaches = await page.evaluate(() => {
             const data = [];
             const elements = document.getElementsByClassName('flx flx-col');
@@ -34,10 +46,10 @@ const haveIBeenPowned = async (email) => {
             }
             return data;
         });
-        const sanitysedArray = rawBreaches.filter((value, index, self) => index === self.findIndex((t) => t.title === value.title));
+        console.log(JSON.stringify(rawBreaches));
         await browser.close();
-        return sanitysedArray;
+        return results;
     }
     return defaultResponse;
 };
-export default haveIBeenPowned;
+exports.default = firefoxMonitor;

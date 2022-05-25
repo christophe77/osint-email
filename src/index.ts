@@ -1,5 +1,6 @@
-import search from "./search"
+import search from './search';
+
 const osintEmail = {
-    search
-}
+	search,
+};
 export default osintEmail;

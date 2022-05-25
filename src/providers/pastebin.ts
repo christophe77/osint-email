@@ -21,10 +21,7 @@ const pastebin = async (email: string): Promise<Pastebin[]> => {
             const searchResults: Pastebin[] = await page.$$eval('a', (as) =>
 				as.map((a: any) => {
 					if (!a.href.includes('google') && a.href !== '') {
-						return {
-							title: String(a.title) || '',
-							link: String(a.href),
-						};
+						return String(a.href)
 					}
 				}),
 			);
