@@ -16,7 +16,7 @@ Gather informations from an email adress.
 
 ## Example
 
-    const osintEmail = require('osint-email');
+    const osintEmail = require('osint-email').default;
     // or
     import osintEmail from 'osint-email';
 

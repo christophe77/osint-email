@@ -3,7 +3,7 @@ import HaveIBeenPowned from './haveIBeenPowned';
 import Pastebin from './pastebin';
 declare type Result = {
     google: Google[];
-    haveIBeenPowned: HaveIBeenPowned;
+    haveIBeenPowned: HaveIBeenPowned[];
     pastebin: Pastebin[];
 };
 export default Result;

@@ -14,10 +14,6 @@ const pastebin = async (email) => {
             // bypass cookie alert
             await page.keyboard.press('Enter');
             await delay(1000);
-            await page.waitForSelector('.yuRUbf', {
-                visible: true,
-                timeout: 1000,
-            });
             const searchResults = await page.$$eval('a', (as) => as.map((a) => {
                 if (!a.href.includes('google') && a.href !== '') {
                     return {

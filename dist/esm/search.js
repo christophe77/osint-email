@@ -1,6 +1,5 @@
 import providers from './providers';
-import pastebin from './providers/pastebin';
-const { google, haveIBeenPowned } = providers;
+const { google, haveIBeenPowned, pastebin } = providers;
 const search = async (email) => {
     const googleDatas = await google(email);
     const haveIBeenPownedDatas = await haveIBeenPowned(email);
