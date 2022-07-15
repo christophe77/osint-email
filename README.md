@@ -6,7 +6,7 @@ Gather informations from an email adress.
 
 - Google
 - Pastebin
-- Havebeenpown
+- haveIBeenPowned
 
 ## Install
 
@@ -26,43 +26,39 @@ Gather informations from an email adress.
     }
     getDatas("exemple@gmail.com");
 
-## Result type
+## Response
 
-    type Google = {
-        title?: string;
-        link?: string;
-    } | undefined;
+example :
 
-    type Pastebin = {
-        title?: string;
-        link?: string;
-    } | undefined;
-
-    type HaveIBeenPowned = {
-        Breaches: {
-            Name: string;
-            Title: string;
-            Domain: string;
-            BreachDate: string;
-            AddedDate: string;
-            ModifiedDate: string;
-            PwnCount: number;
-            Description: string;
-            LogoPath: string;
-            DataClasses: string[];
-            IsVerified: boolean;
-            IsFabricated: boolean;
-            IsSensitive: boolean;
-            IsRetired: boolean;
-            IsSpamList: boolean;
-            IsMalware: boolean;
-        }[];
-
-        Pastes: {
-            Id: string;
-            Source: string;
-            Title: string;
-            Date: string;
-            EmailCount: number;
-        }[];
-    };
+    {
+        google: [
+            {
+                title: 'the title',
+                link: 'https://[.....].pdf'
+            },
+            {
+                title: 'another title',
+                link: 'https://[....].html'
+            }
+        ],
+        pastebin: [
+            "https://pastebin.com/NKj3uXn1",
+            "https://pastebin.com/NKj3uXn2",
+            "https://pastebin.com/NKj3uXn3"
+        ],
+        haveIBeenPowned:[
+            {
+                title: "adobe";
+                values: [
+                    {
+                        name: "date";
+    	                value: "01/01/2014";
+                    },
+                    {
+                        name: "type";
+    	                value: "email, passwords";
+                    }
+                ]
+            }
+        ]
+    }
