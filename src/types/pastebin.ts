@@ -1,6 +1,3 @@
-type Pastebin = {
-	title?: string;
-	link?: string;
-} | undefined;
+type Pastebin = string | undefined;
 
 export default Pastebin;

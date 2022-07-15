@@ -1,4 +1,3 @@
-
 type HaveIBeenPowned = {
 	title: string;
 	values: {

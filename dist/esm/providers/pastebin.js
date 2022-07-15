@@ -16,10 +16,7 @@ const pastebin = async (email) => {
             await delay(1000);
             const searchResults = await page.$$eval('a', (as) => as.map((a) => {
                 if (!a.href.includes('google') && a.href !== '') {
-                    return {
-                        title: String(a.title) || '',
-                        link: String(a.href),
-                    };
+                    return String(a.href);
                 }
             }));
             await browser.close();
